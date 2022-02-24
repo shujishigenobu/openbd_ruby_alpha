@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 require 'open-uri'
 require 'json'
 require 'thor'
@@ -51,4 +53,6 @@ module OpenBd
 
 end
 
-OpenBd::CLI.start(ARGV)
+if __FILE__ == $0
+  OpenBd::CLI.start(ARGV)
+end
