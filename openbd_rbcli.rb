@@ -37,7 +37,7 @@ module OpenBd
       url = BASE_API_URL + "/get?isbn=#{q}"
 
       uri = URI.parse(url)
-      STDERR.puts uri
+#      STDERR.puts uri
 
       res = uri.open.read
 
@@ -47,6 +47,31 @@ module OpenBd
       else 
         puts res
       end
+    end
+
+    desc "mget ISBNs", "retrieve multiple book information by giving multiple ISBN IDs separated by comma."
+    option :mode, :aliases => '-m', :enum => ["summary", "full"], :default => "summary", :desc => "output mode"
+    def mget(query)
+      q = query.strip
+      raise unless /^[\d,]+$/.match(q)
+      mode = options[:mode]
+
+      url = nil
+      url = BASE_API_URL + "/get?isbn=#{q}"
+
+      uri = URI.parse(url)
+#      STDERR.puts uri
+
+      res = uri.open.read
+
+      data = JSON.parse(res) #data : Array
+
+      if mode == 'summary'
+        puts  data.map{|e| e["summary"]}.to_json
+      else 
+        puts res
+      end
+
     end
 
   end

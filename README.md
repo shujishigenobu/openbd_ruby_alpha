@@ -1,5 +1,10 @@
 # openbd_ruby_alpha
 
+command line interfece touse opendb REST API (https://openbd.jp/).
+
+References:
+* https://openbd.jp/
+
 ## examples
 
 ```
@@ -16,4 +21,5 @@ $./openbd_rbcli.rb get 9784296109654 | jq
     "cover": "https://cover.openbd.jp/9784296109654.jpg",
     "author": "谷敏行／著"
   }
-]```
+]
+```
