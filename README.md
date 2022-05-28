@@ -1,6 +1,6 @@
 # openbd_ruby_alpha
 
-command line interfece touse opendb REST API (https://openbd.jp/).
+command line interfece to use opendb REST API (https://openbd.jp/).
 
 References:
 * https://openbd.jp/
